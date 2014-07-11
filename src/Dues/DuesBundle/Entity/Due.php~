@@ -248,4 +248,32 @@ class Due
     {
         return $this->holder_id_fk;
     }
+    /**
+     * @var string
+     */
+    private $title;
+
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Due
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }

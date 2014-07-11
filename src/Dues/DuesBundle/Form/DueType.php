@@ -15,8 +15,9 @@ class DueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('title')
             ->add('amount')
-            ->add('holder_id')
+           // ->add('holder_id')
             ->add('debtor_id')
             ->add('start_date')
             ->add('intrest_start')

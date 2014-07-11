@@ -38,7 +38,7 @@ class DueController extends Controller
         $entity = new Due();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-        $entity->setHolderId( $this->get('security.context')->getToken()->getUser()->getId());
+        $entity->setHolderId( $this->get('security.context')->getToken()->getUser());
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

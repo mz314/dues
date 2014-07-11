@@ -12,6 +12,13 @@ Dues\DuesBundle\Entity\Due:
             joinColumn:
                 name: debtor_id
                 referencedColumnName: id
+                nullable: false
+        due_list_id:
+            targetEntity: DueList
+            joinColumn:
+                name: due_list_id
+                referencedColumnName: id
+                nullable: false
         
     table: dues
     id:
@@ -20,6 +27,9 @@ Dues\DuesBundle\Entity\Due:
             generator: { strategy: AUTO }
     
     fields:
+        title:
+            type: string
+            nullable: true
         amount: 
             type: float 
             nullable: false
@@ -29,11 +39,12 @@ Dues\DuesBundle\Entity\Due:
     
         intrest_start: 
             type: date
+            nullalble: true
         
         intrest_rate: 
             type: float
+            nullable: true
         
-        due_list_id: integer
     
     
         
