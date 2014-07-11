@@ -1,6 +1,18 @@
 Dues\DuesBundle\Entity\Due:
     detect_relations: true
     type: entity
+    manyToOne:
+        holder_id:
+            targetEntity: User
+            joinColumn:
+                name: holder_id
+                referencedColumnName: id
+        debtor_id: 
+            targetEntity: Debtor
+            joinColumn:
+                name: debtor_id
+                referencedColumnName: id
+        
     table: dues
     id:
         id:
@@ -11,12 +23,6 @@ Dues\DuesBundle\Entity\Due:
         amount: 
             type: float 
             nullable: false
-    
-        holder_id: 
-            type: integer
-    
-        debtor_id: 
-            type: integer
     
         start_date: 
             type: date

@@ -6,7 +6,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-
 class DueType extends AbstractType
 {
         /**
@@ -17,20 +16,13 @@ class DueType extends AbstractType
     {
         $builder
             ->add('amount')
-            #->add('holder_id')
-            ->add('debtor_id','entity',array(
-                'class'=>'DuesBundle:Debtor',
-                'property'=>'fullName'
-            ))
+            ->add('holder_id')
+            ->add('debtor_id')
             ->add('start_date')
             ->add('intrest_start')
             ->add('intrest_rate')
-            ->add('due_list_id','entity',array(
-                'class'=>'DuesBundle:DueList',
-                'property'=>'name'))
-            
-                ;
-        
+            ->add('due_list_id')
+        ;
     }
     
     /**

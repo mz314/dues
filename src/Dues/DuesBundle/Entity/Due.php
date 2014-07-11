@@ -220,4 +220,32 @@ class Due
     {
         return $this->due_list_id;
     }
+    /**
+     * @var \Dues\DuesBundle\Entity\User
+     */
+    private $holder_id_fk;
+
+
+    /**
+     * Set holder_id_fk
+     *
+     * @param \Dues\DuesBundle\Entity\User $holderIdFk
+     * @return Due
+     */
+    public function setHolderIdFk(\Dues\DuesBundle\Entity\User $holderIdFk = null)
+    {
+        $this->holder_id_fk = $holderIdFk;
+
+        return $this;
+    }
+
+    /**
+     * Get holder_id_fk
+     *
+     * @return \Dues\DuesBundle\Entity\User 
+     */
+    public function getHolderIdFk()
+    {
+        return $this->holder_id_fk;
+    }
 }
