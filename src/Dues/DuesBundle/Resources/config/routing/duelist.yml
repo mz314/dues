@@ -1,0 +1,30 @@
+duelist:
+    pattern:  /
+    defaults: { _controller: "DuesBundle:DueList:index" }
+
+duelist_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DuesBundle:DueList:show" }
+
+duelist_new:
+    pattern:  /new
+    defaults: { _controller: "DuesBundle:DueList:new" }
+
+duelist_create:
+    pattern:  /create
+    defaults: { _controller: "DuesBundle:DueList:create" }
+    requirements: { _method: post }
+
+duelist_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DuesBundle:DueList:edit" }
+
+duelist_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DuesBundle:DueList:update" }
+    requirements: { _method: post|put }
+
+duelist_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DuesBundle:DueList:delete" }
+    requirements: { _method: post|delete }

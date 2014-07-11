@@ -1,0 +1,8 @@
+Dues\DuesBundle\Entity\User:
+    type:  entity
+    table: due_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO

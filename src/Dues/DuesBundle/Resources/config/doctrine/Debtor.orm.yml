@@ -1,0 +1,22 @@
+Dues\DuesBundle\Entity\Debtor:
+    detect_relations: true
+    type: entity
+    table: debtor
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            nullable: false
+        lastname:
+            type: string
+            nullable: false
+        address:
+            type: text
+            nullable: false
+        comment:
+            type: text
+            nullable: true
+                

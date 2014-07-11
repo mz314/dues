@@ -1,0 +1,30 @@
+debtor:
+    pattern:  /
+    defaults: { _controller: "DuesBundle:Debtor:index" }
+
+debtor_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DuesBundle:Debtor:show" }
+
+debtor_new:
+    pattern:  /new
+    defaults: { _controller: "DuesBundle:Debtor:new" }
+
+debtor_create:
+    pattern:  /create
+    defaults: { _controller: "DuesBundle:Debtor:create" }
+    requirements: { _method: post }
+
+debtor_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DuesBundle:Debtor:edit" }
+
+debtor_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DuesBundle:Debtor:update" }
+    requirements: { _method: post|put }
+
+debtor_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DuesBundle:Debtor:delete" }
+    requirements: { _method: post|delete }

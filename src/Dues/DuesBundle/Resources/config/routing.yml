@@ -1,0 +1,15 @@
+dues_homepage:
+    pattern:  /
+    defaults: { _controller: DuesBundle:Default:index }
+    
+due_list:
+    prefix: /lists
+    resource: "@DuesBundle/Resources/config/routing/duelist.yml"
+    
+dues:
+    prefix: /dues
+    resource: "@DuesBundle/Resources/config/routing/due.yml"
+    
+DuesBundle_debtor:
+        resource: "@DuesBundle/Resources/config/routing/debtor.yml"
+        prefix:   /debtors

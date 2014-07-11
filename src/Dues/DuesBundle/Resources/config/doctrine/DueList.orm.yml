@@ -1,0 +1,23 @@
+Dues\DuesBundle\Entity\DueList:
+    detect_relations: true
+    type: entity
+    table: due_lists
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: 
+            type: string
+            length: 45
+            unique: false
+        
+        description:
+            type: text
+        
+        user_id: integer
+    
+
+        
+            
+        

@@ -1,0 +1,30 @@
+due:
+    pattern:  /
+    defaults: { _controller: "DuesBundle:Due:index" }
+
+due_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "DuesBundle:Due:show" }
+
+due_new:
+    pattern:  /new
+    defaults: { _controller: "DuesBundle:Due:new" }
+
+due_create:
+    pattern:  /create
+    defaults: { _controller: "DuesBundle:Due:create" }
+    requirements: { _method: post }
+
+due_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "DuesBundle:Due:edit" }
+
+due_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "DuesBundle:Due:update" }
+    requirements: { _method: post|put }
+
+due_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "DuesBundle:Due:delete" }
+    requirements: { _method: post|delete }

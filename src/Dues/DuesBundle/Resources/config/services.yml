@@ -1,0 +1,7 @@
+parameters:
+#    dues.example.class: Dues\DuesBundle\Example
+
+services:
+#    dues.example:
+#        class: %dues.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

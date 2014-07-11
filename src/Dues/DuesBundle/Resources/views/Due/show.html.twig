@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Due</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ entity.amount }}</td>
+            </tr>
+            <tr>
+                <th>Holder_id</th>
+                <td>{{ entity.holderid }}</td>
+            </tr>
+            <tr>
+                <th>Debtor_id</th>
+                <td>{{ entity.debtorid }}</td>
+            </tr>
+            <tr>
+                <th>Start_date</th>
+                <td>{{ entity.startdate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Intrest_start</th>
+                <td>{{ entity.intreststart|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Intrest_rate</th>
+                <td>{{ entity.intrestrate }}</td>
+            </tr>
+            <tr>
+                <th>Due_list_id</th>
+                <td>{{ entity.duelistid }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('due') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('due_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
