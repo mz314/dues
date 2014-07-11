@@ -1,6 +1,6 @@
 dues_homepage:
     pattern:  /
-    defaults: { _controller: DuesBundle:Default:index }
+    defaults: { _controller: DuesBundle:Index:index }
     
 due_list:
     prefix: /lists

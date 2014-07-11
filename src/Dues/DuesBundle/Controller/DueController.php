@@ -19,10 +19,10 @@ class DueController extends Controller
      * Lists all Due entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
+        //$request->setLocale('pl');
         $entities = $em->getRepository('DuesBundle:Due')->findAll();
 
         return $this->render('DuesBundle:Due:index.html.twig', array(

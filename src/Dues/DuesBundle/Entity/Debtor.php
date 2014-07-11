@@ -144,4 +144,6 @@ class Debtor
     function __toString() {
         return $this->getFullName();
     }
+    
+   
 }
