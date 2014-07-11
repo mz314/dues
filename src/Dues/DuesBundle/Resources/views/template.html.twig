@@ -1,5 +1,11 @@
 <html>
     <head>
+   {% stylesheets 'bundles/dues/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% javascripts '@DuesBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
         <title>
             {% block title %}
                 Dues
@@ -10,6 +16,11 @@
     </head>
     <body>
      {%block body %}
+         {%block menu %}
+             {% include "DuesBundle::menu.html.twig" %}
+         {% endblock %}
+         {% block content %}
+         {% endblock %}
      {% endblock %}
     </body>
 </html>
