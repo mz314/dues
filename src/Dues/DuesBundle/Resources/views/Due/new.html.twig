@@ -1,6 +1,8 @@
 {% extends "DuesBundle::template.html.twig" %}
 
 {% block content -%}
+{{ form_stylesheet(form) }}
+{{ form_javascript(form) }}
     <h1>Due creation</h1>
 
     {{ form(form,{ 'style': 'horizontal'}) }}

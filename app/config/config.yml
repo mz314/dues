@@ -7,6 +7,9 @@ fos_user:
     firewall_name: main
     user_class: Dues\DuesBundle\Entity\User
 
+genemu_form:
+    date: ~
+    
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }

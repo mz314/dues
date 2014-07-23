@@ -18,7 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+           
+              new Bmatzner\JQueryUIBundle\BmatznerJQueryUIBundle(),
+           new Bmatzner\JQueryBundle\BmatznerJQueryBundle(),
+              new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Dues\DuesBundle\DuesBundle(),
+           
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

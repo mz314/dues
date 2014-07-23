@@ -22,10 +22,11 @@ class DueListController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+       
         $entities = $em->getRepository('DuesBundle:DueList')->findAll();
 
         return $this->render('DuesBundle:DueList:index.html.twig', array(
+          
             'entities' => $entities,
         ));
     }

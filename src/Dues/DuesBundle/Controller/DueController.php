@@ -4,41 +4,55 @@ namespace Dues\DuesBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Dues\DuesBundle\Entity\Due;
 use Dues\DuesBundle\Form\DueType;
+use Dues\DuesBundle\Form\DueSearchType;
 
 /**
  * Due controller.
  *
  */
-class DueController extends Controller
-{
+class DueController extends Controller {
 
     /**
      * Lists all Due entities.
      *
      */
-    public function indexAction(Request $request)
-    {
+    public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(new DueSearchType());
+        $form->handleRequest($request);
         //$request->setLocale('pl');
-        $entities = $em->getRepository('DuesBundle:Due')->findAll();
-
+        $filter_data = array();
+        if ($form->isValid()) {
+            $data = $form->getData();
+            // var_dump($data);
+            if ($data['list']) {
+                $filter_data['due_list_id'] = $data['list']->getId();
+            }
+            if ($data['freetext']) {
+                $user = $em->getRepository('DuesBundle:User')->findOneByusername($data['freetext']);
+                if ($user) {
+                    $filter_data['debtor_id'] = $user->getId();
+                }
+            }
+        }
+        $entities = $em->getRepository('DuesBundle:Due')->findBy($filter_data);
         return $this->render('DuesBundle:Due:index.html.twig', array(
-            'entities' => $entities,
+                    'form' => $form->createView(),
+                    'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Due entity.
      *
      */
-    public function createAction(Request $request)
-    {
+    public function createAction(Request $request) {
         $entity = new Due();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-        $entity->setHolderId( $this->get('security.context')->getToken()->getUser());
+        $entity->setHolderId($this->get('security.context')->getToken()->getUser());
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -48,20 +62,19 @@ class DueController extends Controller
         }
 
         return $this->render('DuesBundle:Due:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
     /**
-    * Creates a form to create a Due entity.
-    *
-    * @param Due $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(Due $entity)
-    {
+     * Creates a form to create a Due entity.
+     *
+     * @param Due $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createCreateForm(Due $entity) {
         $form = $this->createForm(new DueType(), $entity, array(
             'action' => $this->generateUrl('due_create'),
             'method' => 'POST',
@@ -76,14 +89,13 @@ class DueController extends Controller
      * Displays a form to create a new Due entity.
      *
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new Due();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('DuesBundle:Due:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -91,8 +103,7 @@ class DueController extends Controller
      * Finds and displays a Due entity.
      *
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('DuesBundle:Due')->find($id);
@@ -104,16 +115,15 @@ class DueController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DuesBundle:Due:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+                    'entity' => $entity,
+                    'delete_form' => $deleteForm->createView(),));
     }
 
     /**
      * Displays a form to edit an existing Due entity.
      *
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('DuesBundle:Due')->find($id);
@@ -126,21 +136,20 @@ class DueController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('DuesBundle:Due:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Due entity.
-    *
-    * @param Due $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Due $entity)
-    {
+     * Creates a form to edit a Due entity.
+     *
+     * @param Due $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(Due $entity) {
         $form = $this->createForm(new DueType(), $entity, array(
             'action' => $this->generateUrl('due_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -150,12 +159,12 @@ class DueController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Due entity.
      *
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('DuesBundle:Due')->find($id);
@@ -175,17 +184,17 @@ class DueController extends Controller
         }
 
         return $this->render('DuesBundle:Due:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Due entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -211,13 +220,13 @@ class DueController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('due_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
+                        ->setAction($this->generateUrl('due_delete', array('id' => $id)))
+                        ->setMethod('DELETE')
+                        ->add('submit', 'submit', array('label' => 'Delete'))
+                        ->getForm()
         ;
     }
+
 }
