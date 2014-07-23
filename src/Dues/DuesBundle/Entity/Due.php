@@ -73,6 +73,13 @@ class Due
         return $this;
     }
 
+    public function getIntrestAmount() {
+      
+        var_dump($this->intrest_start);
+     //  var_dump($now);
+     
+    }
+    
     /**
      * Get amount
      *

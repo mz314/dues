@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends "DuesBundle::template.html.twig" %}
 
-{% block body -%}
+{% block content -%}
     <h1>Due</h1>
 
     <table class="record_properties">
@@ -10,47 +10,54 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Amount</th>
+                <th>{% trans %}Amount{% endtrans %}</th>
                 <td>{{ entity.amount }}</td>
             </tr>
             <tr>
-                <th>Holder_id</th>
+                <th>{% trans %}Holder{% endtrans %}</th>
                 <td>{{ entity.holderid }}</td>
             </tr>
             <tr>
-                <th>Debtor_id</th>
+                <th>{% trans %}Debtor{% endtrans %}</th>
                 <td>{{ entity.debtorid }}</td>
             </tr>
             <tr>
-                <th>Start_date</th>
+                <th>{% trans %}Debt start{% endtrans %}</th>
                 <td>{{ entity.startdate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Intrest_start</th>
+                <th>{% trans %}Intrest adding start{% endtrans %}</th>
                 <td>{{ entity.intreststart|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Intrest_rate</th>
+                <th>{% trans %}Intrest rate (%){% endtrans %}</th>
                 <td>{{ entity.intrestrate }}</td>
             </tr>
             <tr>
-                <th>Due_list_id</th>
+                <th>{% trans %}Due list name{% endtrans %}</th>
                 <td>{{ entity.duelistid }}</td>
             </tr>
         </tbody>
     </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('due') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('due_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <h2>Info</h2>
+        <ul id="statistics">
+            <li>
+                {% trans %}Amount with intrest{% endtrans %}
+                {{ entity.intrestamount }}
+            </li>
+        </ul>
+    </div>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('due') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('due_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}
