@@ -1,6 +1,6 @@
 cms:
     resource: "@CmsBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /cms
 
 dues:
     resource: "@DuesBundle/Resources/config/routing.yml"

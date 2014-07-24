@@ -30,7 +30,7 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
               
             new Dues\DuesBundle\DuesBundle(),
-,
+
             new Dues\CmsBundle\CmsBundle(),
         );
 
