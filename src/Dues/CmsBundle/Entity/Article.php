@@ -36,4 +36,18 @@ class Article {
     protected $category;
     
     protected $author_id;
+    
+    function getId() {
+        return $this->id;
+    }
+    
+    function getTitle() {
+     return $this->title;
+        
+    }
+    
+    function getContent() {
+        return $this->content;
+    }
+    
 }

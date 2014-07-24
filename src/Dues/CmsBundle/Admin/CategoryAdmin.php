@@ -12,9 +12,9 @@ class CategoryAdmin extends Admin {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-            ->add('username', 'text', array('label' => 'User name'))
+                ->add('username', 'text', array('label' => 'User name'))
                 ->add('display_name', 'text', array('label' => 'Display name'))
-        
+
         ;
     }
 
@@ -30,8 +30,7 @@ class CategoryAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
                 ->addIdentifier('id')
-                ->addIdentifier('username')
-                ->addIdentifier('display_name')
+                ->addIdentifier('name');
 
         ;
     }
