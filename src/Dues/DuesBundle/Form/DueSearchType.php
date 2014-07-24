@@ -18,7 +18,7 @@ class DueSearchType extends AbstractType {
                     'empty_value'=>'Choose list',
                     'empty_data'=>null,
                      'required'    => false))
-                ->add('freetext')
+           
                 ->add('Search', 'submit')
         ;
     }

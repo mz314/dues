@@ -74,10 +74,14 @@ class Due
     }
 
     public function getIntrestAmount() {
-      
-        var_dump($this->intrest_start);
-     //  var_dump($now);
-     
+       $now=new \DateTime("now");
+       $diff=$now->diff($this->intrest_start);
+       $intrest_add=$diff->days*$this->amount*($this->intrest_rate/100);
+       return $intrest_add;  
+    }
+    
+    public function getTotalAmount() {
+        return $this->getAmount()+$this->getIntrestAmount();
     }
     
     /**

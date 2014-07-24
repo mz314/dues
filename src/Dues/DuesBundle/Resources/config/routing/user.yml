@@ -1,0 +1,4 @@
+user:
+    pattern:  /
+    defaults: { _controller: "DuesBundle:User:index" }
+

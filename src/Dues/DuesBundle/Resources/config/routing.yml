@@ -13,3 +13,4 @@ dues:
 DuesBundle_debtor:
         resource: "@DuesBundle/Resources/config/routing/debtor.yml"
         prefix:   /debtors
+        

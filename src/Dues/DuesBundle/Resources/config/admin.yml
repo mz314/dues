@@ -1,0 +1,11 @@
+services:
+    sonata.admin.useradmin:
+        class: Dues\DuesBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Auth", label: "Users" }
+        arguments:
+            - ~
+            - Dues\DuesBundle\Entity\User
+            - DuesBundle:UserAdmin
+        calls:
+            - [ setTranslationDomain, [DuesDuesBundle]]

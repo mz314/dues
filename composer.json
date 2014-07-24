@@ -36,7 +36,14 @@
         "braincrafted/bootstrap-bundle": " ~2.0",
         "jquery/jquery":  "1.10.*",
         "genemu/form-bundle": "*",
-        "bmatzner/jquery-ui-bundle": "*"
+        "bmatzner/jquery-ui-bundle": "*",
+        "knplabs/knp-menu": "*",
+        "pimple/pimple": "*",
+        "sonata-project/core-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

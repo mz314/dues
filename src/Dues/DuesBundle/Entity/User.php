@@ -17,6 +17,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @ORM\Column(name="display_name",type="text", length=128, options={"nullable": True})
+     */
+    protected $display_name;
 
     
     public function __construct()
@@ -24,7 +29,17 @@ class User extends BaseUser
         parent::__construct();
         
     }
-
+     public function getDisplayName() {
+         $this->getDisplay_Name();
+     }
+    public function getDisplay_Name() {
+        return $this->display_name;
+    }
+    
+    function setDisplayName($dn) {
+        $this->display_name=$dn;
+    }
+    
     /**
      * Get id
      *

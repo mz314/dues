@@ -37,16 +37,17 @@
                 <th>{% trans %}Due list name{% endtrans %}</th>
                 <td>{{ entity.duelistid }}</td>
             </tr>
+            <tr>
+                <th>{% trans %}Intrest amount{% endtrans %}</th>
+                <td>{{ entity.intrestamount }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Total debt{% endtrans %}</th>
+                <td>{{ entity.totalamount }}</td>
+            </tr>
         </tbody>
     </table>
-    <h2>Info</h2>
-        <ul id="statistics">
-            <li>
-                {% trans %}Amount with intrest{% endtrans %}
-                {{ entity.intrestamount }}
-            </li>
-        </ul>
-    </div>
+   
     <ul class="record_actions">
         <li>
             <a href="{{ path('due') }}">

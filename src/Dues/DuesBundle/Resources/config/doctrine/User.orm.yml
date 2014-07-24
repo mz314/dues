@@ -6,3 +6,8 @@ Dues\DuesBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        display_name: 
+            type: text
+            length: 128
+            nullable: True
