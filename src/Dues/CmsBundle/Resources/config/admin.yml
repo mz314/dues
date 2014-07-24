@@ -1,0 +1,27 @@
+services:
+    sonata.admin.articleadmin:
+        class: Dues\CmsBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "CMS", label: "Articles" }
+        arguments:
+            - ~
+            - Dues\CmsBundle\Entity\Article
+            - ~
+        calls:
+            - [ setTranslationDomain, [DuesCmsBundle]]
+    
+    sonata.admin.categoryadmin:
+        class: Dues\CmsBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "CMS", label: "Categories" }
+        arguments:
+            - ~
+            - Dues\CmsBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [DuesCmsBundle]]
+            
+
+    
+   
+    

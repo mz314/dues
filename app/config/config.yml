@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @DuesBundle/Resources/config/admin.yml }
+    - { resource: @CmsBundle/Resources/config/admin.yml }
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
