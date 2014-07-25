@@ -6,8 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
-    {
-        return $this->render('CmsBundle:Default:index.html.twig', array('name' => $name));
+ 
+   
+    public function categoryAction($name=null) {
+        var_dump($name);
+        die;
+        return '';
     }
 }

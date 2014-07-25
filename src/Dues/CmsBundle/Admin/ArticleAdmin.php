@@ -12,8 +12,10 @@ class ArticleAdmin extends Admin {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-            ->add('username', 'text', array('label' => 'User name'))
-                ->add('display_name', 'text', array('label' => 'Display name'))
+            ->add('title', 'text', array('label' => 'Title'))
+             ->add('content', 'textarea', array('label' => 'Content'))
+                ->add('category','sonata_type_model',array('label' => 'Category'),
+                        array());
         
         ;
     }
@@ -30,8 +32,8 @@ class ArticleAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
                 ->addIdentifier('id')
-                ->addIdentifier('username')
-                ->addIdentifier('display_name')
+                ->addIdentifier('title')
+                
 
         ;
     }

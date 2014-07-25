@@ -19,7 +19,7 @@ class Category {
     /**
      * @ORM\Column(type="text",length=48)
      */
-    protected $name;
+    public $name;
     
     
     public function getName() {
@@ -29,5 +29,8 @@ class Category {
     public function getId() {
         return $this->id;
     }
-  
+   
+    function __toString() {
+      return $this->getName();   
+    }
 }

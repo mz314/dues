@@ -12,8 +12,8 @@ class CategoryAdmin extends Admin {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-                ->add('username', 'text', array('label' => 'User name'))
-                ->add('display_name', 'text', array('label' => 'Display name'))
+                ->add('name', 'text', array('label' => 'Name'))
+            
 
         ;
     }

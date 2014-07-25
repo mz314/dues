@@ -22,18 +22,18 @@ class Article {
     /**
      * @ORM\Column(type="text",length=48)
      */
-    protected $title;
+    public $title;
     
     /**
      * @ORM\Column(type="string")
      */
-    protected $content;
+    public $content;
     
     
     /**
      * @ManyToOne(targetEntity="Category")
      */
-    protected $category;
+    public $category;
     
     protected $author_id;
     
@@ -50,4 +50,13 @@ class Article {
         return $this->content;
     }
     
+    
+    function getCategory() {
+        return $this->category;
+    }
+    
+    function __toString() {
+      return $this->getTitle();   
+    }
+   
 }
